@@ -1,22 +1,18 @@
-﻿using System;
-
-namespace Functions
+﻿namespace Functions
 {
-
-
     internal class Program
     {
-        static void Main(string[] args)// The function is called Main, return type: void
+        static void Main(string[] args) // The function is called Main returntype: void
         {
-            Program program = new Program();// The Program() constructor is called, return type: Program
-            program.Run();// The function is called Run, return type: void
+            Program program = new Program(); // Here the constructor Program() is used returntype: Program
+            program.Run(); // The function is called Run returntype: void
         }
 
+        // The Run function
         internal void Run()
         {
             Console.WriteLine("Welcome to the question program!");
 
-            // Ask questions
             Vraag1();
             Vraag2();
             Vraag3();
@@ -24,12 +20,14 @@ namespace Functions
             Vraag5();
             Vraag6();
 
-            // New functionality: choose a random question
-            string randomVraag = KiesWillekeurigeVraag();
-            Console.WriteLine($"Random question: {randomVraag}");
+            // Ask 4 random questions
+            AskRandomQuestion(); // Ask a random question
+            AskRandomQuestion(); // Ask another random question
+            AskRandomQuestion(); // Ask another random question
+            AskRandomQuestion(); // Ask another random question
         }
 
-        // Question 1
+        // This function asks the first question
         internal void Vraag1()
         {
             Console.WriteLine("How long do you think you'd survive in a zombie apocalypse?");
@@ -37,7 +35,7 @@ namespace Functions
             Console.WriteLine($"Your answer: {antwoord}");
         }
 
-        // Question 2
+        // This function asks the second question
         internal void Vraag2()
         {
             Console.WriteLine("If you can still remember, what are your funniest childhood memories?");
@@ -45,7 +43,7 @@ namespace Functions
             Console.WriteLine($"Your answer: {antwoord}");
         }
 
-        // Question 3
+        // This function asks the third question
         internal void Vraag3()
         {
             Console.WriteLine("What would you do if you won a million dollars?");
@@ -53,7 +51,7 @@ namespace Functions
             Console.WriteLine($"Your answer: {antwoord}");
         }
 
-        // Question 4
+        // This function asks the fourth question
         internal void Vraag4()
         {
             Console.WriteLine("Why do round pizzas come in square boxes?");
@@ -61,7 +59,7 @@ namespace Functions
             Console.WriteLine($"Your answer: {antwoord}");
         }
 
-        // Question 5
+        // This function asks the fifth question
         internal void Vraag5()
         {
             Console.WriteLine("Has someone caught you dancing in front of the mirror?");
@@ -69,7 +67,7 @@ namespace Functions
             Console.WriteLine($"Your answer: {antwoord}");
         }
 
-        // Question 6
+        // This function asks the sixth question
         internal void Vraag6()
         {
             Console.WriteLine("Which species would be the rudest if all animals could talk?");
@@ -77,22 +75,33 @@ namespace Functions
             Console.WriteLine($"Your answer: {antwoord}");
         }
 
-        // Function with return type: get a random question from the array
-        internal string KiesWillekeurigeVraag()
+        // This function picks a random question from the list
+        internal string GetRandomVraag()
         {
-            string[] vragen = new string[]
-            {
+            Random random = new Random();
+            string[] vragen = {
                 "How long do you think you'd survive in a zombie apocalypse?",
+                "What secret conspiracy would you like to actually start letting other people know?",
                 "If you can still remember, what are your funniest childhood memories?",
                 "What would you do if you won a million dollars?",
+                "What is the worst game you played but that you liked anyway?",
                 "Why do round pizzas come in square boxes?",
                 "Has someone caught you dancing in front of the mirror?",
+                "Have you ever tried talking to an animal?",
+                "What would you call a male ladybug?",
                 "Which species would be the rudest if all animals could talk?"
             };
+            int index = random.Next(vragen.Length); // Get a random index
+            return vragen[index]; // Return the random question
+        }
 
-            Random random = new Random();
-            int index = random.Next(vragen.Length); // Choose a random index
-            return vragen[index];
+        // This function asks a random question and shows the answer
+        internal void AskRandomQuestion()
+        {
+            string vraag = GetRandomVraag(); // Get a random question
+            Console.WriteLine(vraag); // Display the question
+            string antwoord = Console.ReadLine(); // Get the user's answer
+            Console.WriteLine($"Your answer: {antwoord}"); // Show the answer
         }
     }
 }
