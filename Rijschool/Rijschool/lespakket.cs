@@ -8,5 +8,9 @@ namespace Rijschool
 {
     internal class lespakket
     {
+        internal int urenGekocht;
+        internal int urenVerbruikt;
+        internal int examenPoging;
+        internal bool automaat;
     }
 }
