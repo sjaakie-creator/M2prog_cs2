@@ -1,34 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Constructors
+﻿public class QuizVraag
 {
-    internal class QuizVraag
+    public string Vraag { get; }
+    public string Antwoord { get; }
+
+    // Constructor
+    public QuizVraag(string vraag, string antwoord)
     {
-        internal string vraag;
-        internal string antwoord;
-
-        internal QuizVraag(string vraag, string antwoord)
-        {
-            this.vraag = vraag;
-            this.antwoord = antwoord;
-        }
-
-        class Quiz
-        {
-            internal QuizVraag[] vragen;
-            internal QuizVraagAntwoord[] ingevuldeAntwoorden;
-        }
-
-        class QuizVaagAntwoord
-        {
-            internal QuizVraag vraag;
-            internal bool goed;
-        }
-
-
+        this.Vraag = vraag;
+        this.Antwoord = antwoord;
     }
 }

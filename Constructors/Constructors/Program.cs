@@ -1,15 +1,29 @@
-﻿namespace Constructors
+﻿using Constructors;
+using System;
+
+class Program
 {
-    internal class Program
+    static void Main(string[] args)
     {
-        static void Main(string[] args)
+        Run();
+    }
+
+    static void Run()
+    {
+       
+        Quiz quiz = new Quiz(10);
+
+       
+        quiz.VoegVraagToeOpIndex(0, "Wat is de hoofdstad van Nederland?", "Amsterdam");
+        quiz.VoegVraagToeOpIndex(1, "Hoeveel provincies heeft Nederland?", "12");
+
+        
+        for (int i = 0; i < 2; i++)
         {
-            Program program = new Program();
-            program Run();
-            {
-                QuizVraag quizvraag = new QuizVraag( "hier komt de vraag", "hier komt het antwoord");
-            }
+            quiz.StelVraag(i);
         }
 
+        
+        Console.WriteLine($"Je score: {quiz.BerekenScore()}");
     }
 }

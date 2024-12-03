@@ -1,12 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Constructors
+﻿public class QuizVraagAntwoord
 {
-    internal class QuizVraagAntwoord
+    public QuizVraag Vraag { get; }
+    public string GebruikersAntwoord { get; }
+    public bool IsCorrect { get; }
+
+    // Constructor
+    public QuizVraagAntwoord(QuizVraag vraag, string gebruikersAntwoord)
     {
+        this.Vraag = vraag;
+        this.GebruikersAntwoord = gebruikersAntwoord;
+        this.IsCorrect = gebruikersAntwoord.Trim().Equals(vraag.Antwoord, StringComparison.OrdinalIgnoreCase);
     }
 }
